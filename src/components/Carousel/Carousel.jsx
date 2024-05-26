@@ -31,11 +31,10 @@ export const Carousel = ({ images }) => {
   };
 
   return (
-    <div className="flex items-center justify-center w-[90vw] overflow-hidden">
+    <div className="flex items-center justify-center w-[90vw]">
       <motion.div
         ref={carousel}
-        className="overflow-x-scroll cursor-grab"
-        whileTap={{ cursor: "grabbing" }}
+        className="overflow-hidden cursor-grab"
         style={{ x }}
       >
         <motion.div
@@ -47,7 +46,7 @@ export const Carousel = ({ images }) => {
           transition={{ duration: 1 }}
         >
           {images.map((image, index) => (
-            <motion.div className="p-2 flex-shrink-0" key={index}>
+            <motion.div className="h-[15rem] w-[15rem] p-2" key={index}>
               <Image
                 src={`/vestidos/${image}.webp`}
                 height={0}
@@ -58,8 +57,8 @@ export const Carousel = ({ images }) => {
                 style={{
                   height: "auto",
                   width: "auto",
-                  maxHeight: "250px",
-                  maxWidth: "250px",
+                  maxHeight: "15rem",
+                  maxWidth: "15rem",
                 }}
                 onClick={() => openModal(image)}
                 priority
