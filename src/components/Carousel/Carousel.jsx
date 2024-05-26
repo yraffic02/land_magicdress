@@ -34,7 +34,7 @@ export const Carousel = ({ images }) => {
     <div className="flex items-center justify-center w-full">
       <motion.div
         ref={carousel}
-        className="overflow-y-hidden overflow-x-auto"
+        className="overflow-auto"
         whileTap={{ cursor: "grabbing" }}
         style={{ x }}
       >
@@ -44,7 +44,7 @@ export const Carousel = ({ images }) => {
           dragConstraints={{ right: 0, left: -width }}
           initial={{ y: 400 }}
           animate={{ y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1 }}
         >
           {images.map((image, index) => (
             <motion.div className="h-[250px] w-[250px] p-2" key={index}>
