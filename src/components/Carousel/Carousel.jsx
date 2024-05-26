@@ -1,24 +1,14 @@
 "use client";
-import { useMotionValue, motion } from "framer-motion";
+import React, { useState } from "react";
+import Slider from "react-slick";
 import Image from "next/image";
-import React, { useEffect, useRef, useState } from "react";
 import { Modal } from "../Modal/Modal";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export const Carousel = ({ images }) => {
-  const carousel = useRef(null);
-  const [width, setWidth] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
-
-  useEffect(() => {
-    if (carousel.current) {
-      setWidth(
-        carousel.current.scrollWidth - carousel.current.offsetWidth || 0
-      );
-    }
-  }, [images]);
-
-  const x = useMotionValue(0);
 
   const openModal = (image) => {
     setSelectedImage(image);
@@ -30,43 +20,40 @@ export const Carousel = ({ images }) => {
     setSelectedImage(null);
   };
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   return (
-    <div className="flex items-center justify-center w-[90vw]">
-      <motion.div
-        ref={carousel}
-        className="overflow-hidden cursor-grab"
-        style={{ x }}
-      >
-        <motion.div
-          className="flex"
-          drag="x"
-          dragConstraints={{ right: 0, left: -width }}
-          initial={{ y: 400 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 1 }}
-        >
-          {images.map((image, index) => (
-            <motion.div className="h-[15rem] w-[15rem] p-2" key={index}>
-              <Image
-                src={`/vestidos/${image}.webp`}
-                height={0}
-                width={0}
-                alt={image}
-                className="object-cover"
-                sizes="100vw"
-                style={{
-                  height: "auto",
-                  width: "auto",
-                  maxHeight: "15rem",
-                  maxWidth: "15rem",
-                }}
-                onClick={() => openModal(image)}
-                priority
-              />
-            </motion.div>
-          ))}
-        </motion.div>
-      </motion.div>
+    <div className="w-[90vw] mx-auto">
+      <Slider {...settings}>
+        {images.map((image, index) => (
+          <div key={index} className="p-2">
+            <Image
+              src={`/vestidos/${image}.webp`}
+              height={250}
+              width={250}
+              alt={image}
+              className="object-cover"
+              onClick={() => openModal(image)}
+              priority
+            />
+          </div>
+        ))}
+      </Slider>
       <Modal isOpen={isOpen} onClose={closeModal} image={selectedImage} />
     </div>
   );
