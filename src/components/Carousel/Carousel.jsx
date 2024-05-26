@@ -1,5 +1,5 @@
 "use client";
-import { useMotionValue, motion, MotionValue } from "framer-motion";
+import { useMotionValue, motion } from "framer-motion";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { Modal } from "../Modal/Modal";
@@ -16,7 +16,7 @@ export const Carousel = ({ images }) => {
         carousel.current.scrollWidth - carousel.current.offsetWidth || 0
       );
     }
-  }, []);
+  }, [images]);
 
   const x = useMotionValue(0);
 
@@ -31,10 +31,10 @@ export const Carousel = ({ images }) => {
   };
 
   return (
-    <div className="flex items-center justify-center w-[90vw]">
+    <div className="flex items-center justify-center w-[90vw] overflow-hidden">
       <motion.div
         ref={carousel}
-        className="overflow-auto"
+        className="overflow-x-scroll cursor-grab"
         whileTap={{ cursor: "grabbing" }}
         style={{ x }}
       >
@@ -47,7 +47,7 @@ export const Carousel = ({ images }) => {
           transition={{ duration: 1 }}
         >
           {images.map((image, index) => (
-            <motion.div className="h-[250px] w-[250px] p-2" key={index}>
+            <motion.div className="p-2 flex-shrink-0" key={index}>
               <Image
                 src={`/vestidos/${image}.webp`}
                 height={0}
