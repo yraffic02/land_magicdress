@@ -7,10 +7,21 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      colors: {
+        "primary-black": "#0D0D0D",
+        "yellow-100": "#F2D57E",
+        "yellow-200": "#F2C84B",
+        "yellow-300": "#D9A13B",
+        "yellow-400": "#BF7D2C",
+      },
+      keyframes: {
+        lightBeam: {
+          "0%, 100%": { transform: "translateX(-100%)" },
+          "50%": { transform: "translateX(100%)" },
+        },
+      },
+      animation: {
+        lightBeam: "lightBeam 2s linear infinite",
       },
     },
   },
