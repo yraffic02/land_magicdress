@@ -18,7 +18,7 @@ export default function CatalogPage() {
     "31",
   ];
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col items-center gap-2">
       <Carousel images={array1} />
       <Carousel images={array2} />
       <Carousel images={array3} />

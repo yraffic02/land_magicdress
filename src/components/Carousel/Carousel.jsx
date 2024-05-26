@@ -31,7 +31,7 @@ export const Carousel = ({ images }) => {
   };
 
   return (
-    <div className="flex items-center justify-center w-full">
+    <div className="flex items-center justify-center w-[90vw]">
       <motion.div
         ref={carousel}
         className="overflow-auto"
