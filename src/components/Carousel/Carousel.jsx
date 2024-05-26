@@ -47,8 +47,16 @@ export const Carousel = ({ images }) => {
               height={250}
               width={250}
               alt={image}
-              className="object-cover"
+              className="object-cover relative"
               onClick={() => openModal(image)}
+              priority
+            />
+            <Image
+              src="/logo.png"
+              className="absolute bottom-5"
+              height={30}
+              width={30}
+              alt="logo"
               priority
             />
           </div>

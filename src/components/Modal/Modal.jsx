@@ -20,7 +20,15 @@ export const Modal = ({ isOpen, onClose, image }) => {
           alt={image}
           width={600}
           height={600}
-          className="object-contain"
+          className="object-contain relative"
+        />
+        <Image
+          src="/logo.png"
+          className="absolute bottom-5"
+          height={60}
+          width={60}
+          alt="logo"
+          priority
         />
       </div>
     </div>

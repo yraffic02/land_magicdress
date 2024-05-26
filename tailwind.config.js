@@ -21,7 +21,7 @@ module.exports = {
         },
       },
       animation: {
-        lightBeam: "lightBeam 2s linear infinite",
+        lightBeam: "lightBeam 5s linear infinite",
       },
     },
   },
