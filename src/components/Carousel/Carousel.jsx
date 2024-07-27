@@ -33,7 +33,7 @@ export const Carousel = ({ images, batchSize = 10 }) => {
 
   const settings = {
     dots: true,
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,
@@ -54,14 +54,21 @@ export const Carousel = ({ images, batchSize = 10 }) => {
   };
 
   return (
-    <div className="w-[90vw] mx-auto">
+    <div className="w-[90vw] mx-auto px-2">
       <Slider {...settings}>
         {loadedImages.map((image, index) => (
           <div key={index} className="p-1">
             <Image
               src={`/vestidos/${image}.jpeg`}
-              height={250}
-              width={250}
+              width={0}
+              height={0}
+              sizes="100vw"
+              style={{
+                height: 'auto',
+                width: 'auto',
+                maxHeight: '100%',
+                maxWidth: '100%'
+              }}
               alt={image}
               className="object-cover"
               onClick={() => openModal(image)}

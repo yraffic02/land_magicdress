@@ -1,36 +1,33 @@
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 
 export const Modal = ({ isOpen, onClose, image }) => {
-  const [loading, setLoading] = useState(true);
-
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="relative bg-white p-4 rounded">
-        <button
-          onClick={onClose}
-          className="absolute top-0 right-0 mt-2 mr-2 text-black"
-        >
-          X
-        </button>
-        <Image
-          src={`/vestidos/${image}.webp`}
-          alt={image}
-          width={600}
-          height={600}
-          className="object-contain relative"
-        />
-        <Image
-          src="/logo.png"
-          className="absolute bottom-5"
-          height={60}
-          width={60}
-          alt="logo"
-          priority
-        />
-      </div>
+    <div
+      className="fixed inset-0 bg-white  flex  justify-center z-50 modal-backdrop"
+    >
+      <button
+        onClick={onClose}
+        className="absolute top-0 right-0 m-1 text-black p-1 rounded-full bg-white"
+      >
+        X
+      </button>
+      <Image
+        src={`/vestidos/${image}.jpeg`}
+        alt={image}
+        width={0}
+        height={0}
+        sizes="100vw"
+        style={{
+          height: 'auto',
+          width: 'auto',
+          maxHeight: '100%',
+          maxWidth: '100%'
+        }}
+        className="object-contain"
+      />
     </div>
   );
 };

@@ -13,7 +13,7 @@ export default function CatalogPage1() {
       <Carousel images={array8} />
       <div className="mt-2">
         <Link 
-          href='catalog'
+          href='/catalog'
           className="text-white"
         >
           voltar para página anterior
