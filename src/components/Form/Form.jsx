@@ -22,17 +22,12 @@ export default function Form({image}){
             setMessage(`Este vestido está disponível. Veja a imagem: ${imageUrl}`)
         }
     }, [message, tamanho])
-    console.log(tamanho);
+
     return(
         <div 
             className="w-full flex flex-col items-center justify-center gap-2 p-2"
         >   
-            <label 
-                for="tamanho" 
-                class="block text-sm font-bold leading-6 text-yellow-300"
-            >
-                Tamanho do vestido
-            </label>
+            <span className="text-yellow-300 text-center">consulte a disponibilidade do vestido.</span>  
             <input 
                 type="text" 
                 name="tamanho" 
