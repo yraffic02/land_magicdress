@@ -14,7 +14,7 @@ export default function CatalogPage1() {
       <div className="mt-2">
         <Link 
           href='/catalog'
-          className="text-white"
+          className="text-yellow-300 text-center"
         >
           voltar para página anterior
         </Link>

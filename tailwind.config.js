@@ -14,6 +14,11 @@ module.exports = {
         "yellow-300": "#D9A13B",
         "yellow-400": "#BF7D2C",
       },
+      boxShadow: {
+        'white': '0 4px 6px rgba(255, 255, 255, 0.4)',
+        'white-md': '0 6px 10px rgba(255, 255, 255, 0.6)',
+        'white-lg': '0 8px 12px rgba(255, 255, 255, 0.8)',
+      },
       keyframes: {
         lightBeam: {
           "0%, 100%": { transform: "translateX(-100%)" },

@@ -12,10 +12,10 @@ export default function CatalogPage() {
       <Carousel images={array2} />
       <Carousel images={array3} />
       <Carousel images={array4} />
-      <div className="mt-2">
+      <div className="mt-3">
         <Link 
           href='/catalog/page1'
-          className="text-white text-center"
+          className="text-yellow-300 text-center"
         >
           ir para próxima página
         </Link>
